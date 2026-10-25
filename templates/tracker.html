@@ -9,15 +9,26 @@
     <h1>TRACKER</h1>
     <ul>
     {% for expense in items %}
-        <li>{{expense[0]}} - {{expense[1]}}</li>
+        <li>
+            {{expense[0]}} - {{expense[1]}}
+            <form method="post" action="/delete">
+                <input type="hidden" name="index" value="{{loop.index0}}">
+                <button>Delete</button>
+            </form>
+        </li>
     {% endfor %}
     </ul>
     <h2>Total - {{total}}</h2>
 
     <form method="post">
-        <input name="amount" type="number", step="0.01">
+        <input name="amount" type="number" step="0.01">
         <input name="category" type="text">
         <button>Add</button>
     </form>
+    <ul>
+    {% for category, amount in total_by_category.items() %}
+        <li>{{category}} - {{amount}}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>

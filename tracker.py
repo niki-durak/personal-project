@@ -1,6 +1,11 @@
 def add_expense(expenses: list, amount, category: str):
     expenses.append((category, amount))
 
+def delete_expense(expenses: list, index: int):
+    try:
+        expenses.pop(index)
+    except IndexError:
+        return
 def list_expenses(expenses: list):
     a = ''
     for category, amount in expenses:
