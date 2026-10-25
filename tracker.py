@@ -20,4 +20,5 @@ def total(expenses: list):
     result = 0
     for category, amount in expenses:
         result += amount
+        result = round(result, 2)
     return result
