@@ -10,7 +10,7 @@
     <ul>
     {% for expense in items %}
         <li>
-            {{expense["category"]}} - {{expense["amount"]}}
+            {{expense["category"]}} - {{expense["amount"]}} — {{expense["date"]}}
             <form method="post" action="/delete">
                 <input type="hidden" name="index" value="{{loop.index0}}">
                 <button>Delete</button>

@@ -1,5 +1,8 @@
+from datetime import date
+
 def add_expense(expenses: list, category: str, amount):
-    expense = {"category": category, "amount": amount}
+    today = date.today().isoformat()
+    expense = {"category": category, "amount": amount, "date": today}
     expenses.append(expense)
     
 def delete_expense(expenses: list, index: int):
@@ -11,7 +14,7 @@ def delete_expense(expenses: list, index: int):
 def list_expenses(expenses: list):
     a = ''
     for expense in expenses:
-        a += f'{expense["category"]} - {expense["amount"]}\n'
+        a += f'{expense["category"]} - {expense["amount"]}  -  {expense["date"]}\n'
     return a[0:-1]
 
 def total_by_category(expenses: list):
