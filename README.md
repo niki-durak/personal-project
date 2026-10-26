@@ -4,7 +4,7 @@ A small web app for tracking personal expenses, built with Python and Flask.
 
 ## Features
 
-- Add an expense with an amount and a category
+- Add and delete an expense with an amount and a category
 - View the list of all expenses
 - See the total amount spent
 - Data is saved to a local JSON file
@@ -29,7 +29,6 @@ Then open http://127.0.0.1:5000/tracker in your browser.
 
 ## Roadmap
 
-- Totals by category on the page
 - Replace JSON storage with a SQL database
 - Rewrite the API in Go
 - Run everything with Docker

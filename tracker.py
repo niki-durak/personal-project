@@ -1,29 +1,31 @@
-def add_expense(expenses: list, amount, category: str):
-    expenses.append((category, amount))
-
+def add_expense(expenses: list, category: str, amount):
+    expense = {"category": category, "amount": amount}
+    expenses.append(expense)
+    
 def delete_expense(expenses: list, index: int):
     try:
         expenses.pop(index)
     except IndexError:
         return
+
 def list_expenses(expenses: list):
     a = ''
-    for category, amount in expenses:
-        a += f'{category} - {amount}\n'
+    for expense in expenses:
+        a += f'{expense["category"]} - {expense["amount"]}\n'
     return a[0:-1]
 
 def total_by_category(expenses: list):
     d = {}
-    for category, amount in expenses:
-        if category not in d:
-            d[category] = amount
+    for expense in expenses:
+        if expense["category"] not in d:
+            d[expense["category"]] = expense["amount"]
         else:
-            d[category] += amount
+            d[expense["category"]] += expense["amount"]
     return d
 
 def total(expenses: list):
     result = 0
-    for category, amount in expenses:
-        result += amount
+    for expense in expenses:
+        result += expense["amount"]
         result = round(result, 2)
     return result

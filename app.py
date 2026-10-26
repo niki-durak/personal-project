@@ -18,7 +18,7 @@ def tracker():
         category = request.form["category"]
         amount = request.form["amount"]
         if len(category) != 0 and len(amount) != 0:
-            add_expense(expenses, float(amount), category)
+            add_expense(expenses, category, float(amount))
             save_to_json(expenses)
             return redirect("/tracker")
     tbc = total_by_category(expenses)
@@ -31,5 +31,6 @@ def delete():
     delete_expense(expenses, index)
     save_to_json(expenses)
     return redirect("/tracker")
+
 if __name__ == "__main__":
     app.run(debug=True)
